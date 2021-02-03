@@ -1,0 +1,217 @@
+@import "./config";
+
+body {
+  background-color: $light-grayish-blue;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+::-webkit-scrollbar {
+  background-color: inherit;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $dark-blackish-blue;
+  border-radius: 32px;
+}
+
+.bg-pattern {
+  width: 10%;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+}
+
+.container {
+  width: 80%;
+  margin: 32px auto;
+  @include grid(repeat(4, 1fr), 16px);
+
+  .card {
+    position: relative;
+    padding: 16px 32px;
+    border-radius: 8px;
+
+    .profile {
+      @include flex(center, auto, row);
+      margin-bottom: 16px;
+
+      img {
+        width: 40px;
+        border-radius: 50%;
+        margin-right: 16px;
+        border: 2px solid $dark-grayish-blue;
+      }
+
+      div {
+        span {
+          display: block;
+
+          &.name {
+            margin-bottom: 4px;
+            font-size: $medium;
+            font-weight: 500;
+          }
+
+          &.title {
+            font-size: $tiny;
+          }
+        }
+      }
+    }
+
+    h3 {
+      font-size: $big;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: $medium;
+      line-height: 1.4;
+    }
+  }
+}
+
+.daniel {
+  grid-column: 1/3;
+  background-color: $moderate-violet;
+
+  .profile {
+    div {
+      span {
+        &.name {
+          color: $white;
+        }
+
+        &.title {
+          color: $white;
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+
+  h3 {
+    position: relative;
+    z-index: 2;
+    color: $white;
+  }
+
+  p {
+    color: $light-gray;
+  }
+}
+
+.jonathan {
+  background-color: $dark-grayish-blue;
+  color: $white;
+
+  .profile {
+    span {
+      &.title {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  p {
+    color: $light-gray;
+  }
+}
+
+.jeanette {
+  background-color: $white;
+  box-shadow: 0 0 6px lighten($color: $light-gray, $amount: 10%);
+  grid-row: 2;
+  color: $dark-grayish-blue;
+
+  .profile {
+    span {
+      &.title {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  p {
+    opacity: 0.9;
+  }
+}
+
+.kira {
+  background-color: $white;
+  box-shadow: 0 0 6px lighten($color: $light-gray, $amount: 10%);
+  grid-column: 4;
+  grid-row: 1/3;
+  color: $dark-grayish-blue;
+
+  .profile {
+    span {
+      &.title {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  p {
+    opacity: 0.9;
+  }
+}
+
+.patrick {
+  background-color: $dark-blackish-blue;
+  color: white;
+  grid-column: 2/4;
+  grid-row: 2;
+
+  .profile {
+    div {
+      span {
+        &.title {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  p {
+    color: $light-gray;
+    opacity: 0.8;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 90%;
+  }
+
+  .card {
+    padding: 16px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    @include grid(repeat(2, 1fr), 16px);
+
+    .card {
+      grid-column: auto;
+      grid-row: auto;
+      padding: 32px;
+    }
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .container {
+    width: 80%;
+    @include grid(none, 16px);
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .container {
+    width: 90%;
+  }
+}
